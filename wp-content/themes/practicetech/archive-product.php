@@ -1,6 +1,14 @@
 <?php
 get_header();
 ?>
+	
+	<section class="archive-hero">
+		<div class="container">
+			<div class="row">
+				<h1 id="archive-title">Products</h1>
+			</div>
+		</div>
+	</section>
 
 	<section class="products-wrapper">
 		<div class="container">

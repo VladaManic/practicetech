@@ -134,6 +134,39 @@ add_action( 'wp_enqueue_scripts', 'practicetech_scripts' );
 
 
 /**
+ * Loading products
+ */
+add_action('wp_ajax_load_products', 'load_products');
+add_action('wp_ajax_nopriv_load_products', 'load_products');
+function load_products(){
+	$args = array(
+		'post_type' 			=> 'product',
+		'post_status' 		=> 'publish',
+		'posts_per_page' 	=> 8,
+	);
+	$query = new WP_Query($args);
+	//echo "<pre>",print_r($query),"</pre>";
+	if($query->have_posts()) {
+		while ($query->have_posts()) {
+			$query->the_post();
+			$productId = get_the_ID();
+			$productImg = wp_get_attachment_image_src(get_post_thumbnail_id($productId), "medium");
+			?>
+				<a href="<?php the_permalink(); ?>">
+					<div class="single-product">
+						<h3><?php the_title(); ?></h3>
+						<img src="<?php echo $productImg[0]; ?>" alt="<?php the_title(); ?>" />
+					</div>
+				</a>
+			<?php
+		}
+		wp_reset_postdata();
+	}
+	wp_die();
+}
+
+
+/**
  * Load Options
  */
 if (function_exists('acf_add_options_page')) {
