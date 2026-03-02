@@ -127,6 +127,7 @@ add_action( 'widgets_init', 'practicetech_widgets_init' );
 function practicetech_scripts() {
 	//wp_enqueue_style( 'practicetech-vendors-style', get_template_directory_uri() . '/public/css/vendors.min.css' );
 	wp_enqueue_style( 'practicetech-custom-style', get_template_directory_uri() . '/public/css/style.min.css' );
+	wp_enqueue_script('swiper', get_template_directory_uri() . '/assets/vendors/js/swiper-bundle.min.js', array('jquery'), null, true);
 	wp_enqueue_script( 'practicetech-vendors-scripts', get_template_directory_uri() . '/public/js/vendors.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'practicetech-scripts', get_template_directory_uri() . '/public/js/script.min.js', array('jquery'), '', true );
 }

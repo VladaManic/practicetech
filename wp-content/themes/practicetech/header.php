@@ -35,6 +35,8 @@
 	<meta name="msapplication-TileImage" content="/wp-content/themes/practicetech/assets/img/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
 	<?php wp_head(); ?>
 </head>
 
