@@ -15,13 +15,23 @@
 		}
 	}
 
-	#primary-menu {
+	#site-navigation {
 		display: flex;
+		justify-content: center;
+		flex: 1;
+		
+		#primary-menu {
+			display: flex;
+			padding-top: 20px;
 
-		li {
-			a {
-				color: black;
-				text-transform: uppercase;
+			li {
+				margin-right: 20px;
+
+				a {
+					font-size: 20px;
+					text-transform: uppercase;
+					color: black;
+				}
 			}
 		}
 	}
