@@ -46,7 +46,7 @@
 				$logoImg = get_field('site_logo', 'option');
 				?>
 				<a href="/">
-					<img src="<?php echo $logoImg['url']; ?>" alt="<?php echo $logoImg['src']; ?>">
+					<img src="<?php echo $logoImg['url']; ?>" alt="<?php echo $logoImg['src']; ?>" id="site-logo">
 				</a>
 		</div>
 

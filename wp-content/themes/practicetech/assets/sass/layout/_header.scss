@@ -1,0 +1,27 @@
+.site-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	width: 100%;
+	z-index: 20;
+	border-bottom: 1px solid rgba(0, 0, 0, 0);
+	transition: all 0.3s ease 0s;
+
+	.logo {
+		#site-logo {
+			width: 200px;
+			height: 60px;
+		}
+	}
+
+	#primary-menu {
+		display: flex;
+
+		li {
+			a {
+				color: black;
+			}
+		}
+	}
+}
