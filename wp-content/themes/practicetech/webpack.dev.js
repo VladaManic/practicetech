@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
+const project_url = 'http://practicetech.tim';
 
 module.exports = () => {
 	return merge(common(), {
@@ -35,7 +36,7 @@ module.exports = () => {
 			}),
 			new BrowserSyncPlugin(
 				{
-					proxy: process.env.URL,
+					proxy: project_url,
 					port: 3000,
 					ui: false,
 					open: false,
@@ -51,7 +52,7 @@ module.exports = () => {
 				},
 				{ reload: false }
 			),
-			new OpenBrowserPlugin({ url: process.env.URL }),
+			new OpenBrowserPlugin({ url: project_url }),
 		],
 	});
 };
