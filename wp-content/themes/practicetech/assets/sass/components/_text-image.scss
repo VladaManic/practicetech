@@ -1,3 +1,13 @@
 .text-image {
-	background-color: red;
+	.row {
+		display: flex;
+
+		.item-text {
+			width: 50%;
+		}
+
+		.item-image {
+			width: 50%;
+		}
+	}
 }
