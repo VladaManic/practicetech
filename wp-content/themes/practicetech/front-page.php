@@ -28,5 +28,14 @@ get_header();
 		</div>
 	</section>
 
+	<?php
+		if (have_rows('text_image')) {
+			while (have_rows('text_image')) {
+				the_row();
+				get_template_part('template-parts/text-image');
+			}
+		}
+	?>
+
 <?php
 get_footer();
