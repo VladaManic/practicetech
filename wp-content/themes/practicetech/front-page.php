@@ -7,21 +7,24 @@ get_header();
 		<div class="swiper">
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
-				<!-- Slides -->
-				<div class="swiper-slide">Slide 1</div>
-				<div class="swiper-slide">Slide 2</div>
-				<div class="swiper-slide">Slide 3</div>
-				...
+				<?php
+					if( have_rows('hero_home') ){
+    				while( have_rows('hero_home') ){ 
+							the_row();
+							$heroImg = get_sub_field('image');
+				?>
+							<div class="swiper-slide">
+								<img src="<?php echo $heroImg['url']; ?>" alt="<?php echo $heroImg['alt']; ?>" />
+								<p><?php the_sub_field('text'); ?></p>
+							</div>
+				<?php
+						}
+					}
+				?>
 			</div>
-			<!-- If we need pagination -->
-			<div class="swiper-pagination"></div>
-
 			<!-- If we need navigation buttons -->
 			<div class="swiper-button-prev"></div>
 			<div class="swiper-button-next"></div>
-
-			<!-- If we need scrollbar -->
-			<div class="swiper-scrollbar"></div>
 		</div>
 	</section>
 
