@@ -1,3 +1,22 @@
-.hero {
-	margin-top: 200px;
+section.hero {
+	.swiper-slide {
+		position: relative;
+		height: 800px;
+
+		.slide-img {
+			width: 100%;
+			height: auto;
+		}
+
+		.slide-text {
+			position: absolute;
+			top: 50%;
+			right: 50px;
+			transform: translateY(-50%);
+			width: 600px;
+			font-size: 24px;
+			text-align: right;
+			color: #FFF;
+		}
+	}
 }

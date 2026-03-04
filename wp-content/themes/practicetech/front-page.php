@@ -14,8 +14,8 @@ get_header();
 							$heroImg = get_sub_field('image');
 				?>
 							<div class="swiper-slide">
-								<img src="<?php echo $heroImg['url']; ?>" alt="<?php echo $heroImg['alt']; ?>" />
-								<p><?php the_sub_field('text'); ?></p>
+								<img src="<?php echo $heroImg['url']; ?>" alt="<?php echo $heroImg['alt']; ?>" class="slide-img" />
+								<p class="slide-text"><?php the_sub_field('text'); ?></p>
 							</div>
 				<?php
 						}
