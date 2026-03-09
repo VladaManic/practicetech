@@ -153,17 +153,55 @@ function load_products(){
 			$productId = get_the_ID();
 			$productImg = wp_get_attachment_image_src(get_post_thumbnail_id($productId), "medium");
 			?>
-				<a href="<?php the_permalink(); ?>">
-					<div class="single-product">
-						<h3><?php the_title(); ?></h3>
-						<img src="<?php echo $productImg[0]; ?>" alt="<?php the_title(); ?>" />
-					</div>
+				<a href="<?php the_permalink(); ?>" class="single-product">
+					<h3><?php the_title(); ?></h3>
+					<img src="<?php echo $productImg[0]; ?>" alt="<?php the_title(); ?>" />
 				</a>
 			<?php
 		}
 		wp_reset_postdata();
 	}
 	wp_die();
+}
+
+
+
+function paginationDisplay ($countPosts, $defaultDisplay, $currentPage){
+	?>
+		<div class="pagination">
+			<ul class="pagination-links">
+				<?php
+				if ($countPosts > $defaultDisplay) {
+					if ($currentPage > 1) {   //if there is prevous page
+					?>
+						<li class="first-page"><img src="/wp-content/themes/practicetech/assets/img/double-arrow-left.svg" alt="Double arrow left"></li>
+						<li class="prev-page"><img src="/wp-content/themes/practicetech/assets/img/arrow-left.svg" alt="Arrow left"></li>
+					<?php
+					}
+					for ($i = 1; $i <= ceil($countPosts / $defaultDisplay); $i++) {
+						if ($i == $currentPage) {   //if it is link for current page
+				?>
+							<li class="current-page"><?php echo $i; ?></li>
+							<?php
+						} else {
+							if ($i >= $currentPage - 3 && $i <= $currentPage + 3) {   //+-2 pages from current page
+							?>
+								<li class="regular-page"><?php echo $i; ?></li>
+				<?php
+							}
+						}
+					}
+					if ($currentPage < ceil($countPosts / $defaultDisplay)) {   //if there is next page
+					?>
+						<li class="next-page"><img src="/wp-content/themes/practicetech/assets/img/arrow-right.svg" alt="Arrow right"></i></li>
+						<li class="last-page" data-count="' . ceil($countPosts / $defaultDisplay) . '"><img src="/wp-content/themes/practicetech/assets/img/double-arrow-right.svg" alt="Double arrow right"></i></li>
+					<?php
+					}
+				}
+				?>
+			</ul>
+		</div>
+	<?php
 }
 
 

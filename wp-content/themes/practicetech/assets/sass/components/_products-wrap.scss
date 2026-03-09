@@ -1,0 +1,8 @@
+.products-wrap {
+	display: flex;
+	flex-wrap: wrap;
+
+	.single-product {
+		width: 50%;
+	}
+}
