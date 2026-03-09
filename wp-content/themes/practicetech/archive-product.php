@@ -15,7 +15,7 @@ get_header();
 			<div class="row">
 				<div class="products-wrap">
 				<?php
-					$defaultDisplay = 4;
+					$defaultDisplay = 2;
 					$args = array(
 						'post_type' 			=> 'product',
 						'post_status' 		=> 'publish',

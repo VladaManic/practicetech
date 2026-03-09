@@ -140,13 +140,16 @@ add_action( 'wp_enqueue_scripts', 'practicetech_scripts' );
 add_action('wp_ajax_load_products', 'load_products');
 add_action('wp_ajax_nopriv_load_products', 'load_products');
 function load_products(){
+	$defaultDisplay = $_POST['defaultDisplay'];
+	$currentPage = $_POST['currentPage'];
 	$args = array(
 		'post_type' 			=> 'product',
 		'post_status' 		=> 'publish',
-		'posts_per_page' 	=> 8,
+		'posts_per_page' 	=> $defaultDisplay,
 	);
 	$query = new WP_Query($args);
 	//echo "<pre>",print_r($query),"</pre>";
+	$countPosts = $query->found_posts;
 	if($query->have_posts()) {
 		while ($query->have_posts()) {
 			$query->the_post();
@@ -160,6 +163,7 @@ function load_products(){
 			<?php
 		}
 		wp_reset_postdata();
+		paginationDisplay($countPosts, $defaultDisplay, $currentPage);
 	}
 	wp_die();
 }
@@ -168,7 +172,7 @@ function load_products(){
 
 function paginationDisplay ($countPosts, $defaultDisplay, $currentPage){
 	?>
-		<div class="pagination">
+		<div class="pagination" data-display="<?php echo $defaultDisplay; ?>">
 			<ul class="pagination-links">
 				<?php
 				if ($countPosts > $defaultDisplay) {
@@ -184,7 +188,7 @@ function paginationDisplay ($countPosts, $defaultDisplay, $currentPage){
 							<li class="current-page"><?php echo $i; ?></li>
 							<?php
 						} else {
-							if ($i >= $currentPage - 3 && $i <= $currentPage + 3) {   //+-2 pages from current page
+							if ($i >= $currentPage - 2 && $i <= $currentPage + 2) {   //+-2 pages from current page
 							?>
 								<li class="regular-page"><?php echo $i; ?></li>
 				<?php
@@ -194,7 +198,7 @@ function paginationDisplay ($countPosts, $defaultDisplay, $currentPage){
 					if ($currentPage < ceil($countPosts / $defaultDisplay)) {   //if there is next page
 					?>
 						<li class="next-page"><img src="/wp-content/themes/practicetech/assets/img/arrow-right.svg" alt="Arrow right"></i></li>
-						<li class="last-page" data-count="' . ceil($countPosts / $defaultDisplay) . '"><img src="/wp-content/themes/practicetech/assets/img/double-arrow-right.svg" alt="Double arrow right"></i></li>
+						<li class="last-page" data-count="<?php echo ceil($countPosts / $defaultDisplay); ?>"><img src="/wp-content/themes/practicetech/assets/img/double-arrow-right.svg" alt="Double arrow right"></i></li>
 					<?php
 					}
 				}
