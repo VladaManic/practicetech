@@ -142,10 +142,12 @@ add_action('wp_ajax_nopriv_load_products', 'load_products');
 function load_products(){
 	$defaultDisplay = $_POST['defaultDisplay'];
 	$currentPage = $_POST['currentPage'];
+	$offset = (int)$defaultDisplay * ((int)$currentPage - 1);
 	$args = array(
 		'post_type' 			=> 'product',
 		'post_status' 		=> 'publish',
 		'posts_per_page' 	=> $defaultDisplay,
+		'offset'					=> $offset,
 	);
 	$query = new WP_Query($args);
 	//echo "<pre>",print_r($query),"</pre>";
