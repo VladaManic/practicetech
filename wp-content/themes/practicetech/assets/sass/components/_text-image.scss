@@ -1,4 +1,6 @@
 .text-image {
+	margin-bottom: 30px;
+
 	.row {
 		display: flex;
 
@@ -15,6 +17,32 @@
 				width: 100%;
 				height: auto;
 				display: block;
+			}
+		}
+	}
+
+	&.order1 {
+		.item-text {
+			.wrap {
+				padding-right: 30px;
+			}
+		}
+	}
+
+	&.order2 {
+		.row {
+			display: flex;
+
+			.item-text {
+				order: 2;
+
+				.wrap {
+					padding-left: 30px;
+				}
+			}
+
+			.item-image {
+				order: 1;
 			}
 		}
 	}
