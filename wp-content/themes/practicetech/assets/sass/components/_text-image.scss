@@ -3,11 +3,19 @@
 		display: flex;
 
 		.item-text {
+			display: flex;
+			align-items: center;
 			width: 50%;
 		}
 
 		.item-image {
 			width: 50%;
+			
+			.img-inner {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
 		}
 	}
 }
