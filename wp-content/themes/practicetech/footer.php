@@ -37,8 +37,9 @@
 				</div>
 				<div class="subsection subsection-3">
 					<ul>
-						<li><a href="">randomemail@gmail.com</a></li>
-						<li>064 333444</li>
+						<li>Vazduhoplovaca BB, Nis</li>
+						<li><a href="tel:064333444">064 333444</a></li>
+						<li><a href="mailto:randomemail@gmail.com">randomemail@gmail.com</a></li>
 					</ul>
 				</div>
 			</div>

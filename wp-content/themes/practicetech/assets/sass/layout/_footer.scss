@@ -11,7 +11,7 @@ footer.site-footer {
 
 			&.subsection-1 {
 				.footer-description {
-					width: 290px;
+					width: 250px;
 					color: white;
 				}
 			}
@@ -22,6 +22,17 @@ footer.site-footer {
 
 					a {
 						font-size: 22px;
+						color: white;
+					}
+				}
+			}
+
+			&.subsection-3 {
+				li {
+					margin-bottom: 10px;
+					color: white;
+
+					a {
 						color: white;
 					}
 				}
