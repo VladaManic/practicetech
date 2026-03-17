@@ -5,8 +5,12 @@
 	display: flex;
 	width: 100%;
 	z-index: 20;
-	border-bottom: 1px solid rgba(0, 0, 0, 0);
-	background-color: #FFF;
+	background: linear-gradient(
+		to bottom,
+		#ffffff 0%,
+		#ffffff 70%,
+		#d9d5d4 100%
+	);
 	transition: all 0.3s ease 0s;
 
 	.logo {
