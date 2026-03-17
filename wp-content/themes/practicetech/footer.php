@@ -14,7 +14,35 @@
 	</main><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		
+		<div class="container">
+			<div class="row">
+				<div class="subsection subsection-1">
+					<div class="logo">
+						<?php
+							$logoImg = get_field('site_logo', 'option');
+							?>
+							<a href="/">
+								<img src="<?php echo $logoImg['url']; ?>" alt="<?php echo $logoImg['src']; ?>" id="site-logo">
+							</a>
+					</div>
+					<p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim erat leo, eget imperdiet lorem faucibus sed. Suspendisse efficitur sem eget semper facilisis.</p>
+				</div>
+				<div class="subsection subsection-2">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/about-us">About us</a></li>
+						<li><a href="/product">Products</a></li>
+						<li><a href="/contact">Contact</a></li>
+					</ul>
+				</div>
+				<div class="subsection subsection-3">
+					<ul>
+						<li><a href="">randomemail@gmail.com</a></li>
+						<li>064 333444</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</footer><!-- #colophon -->
 
 <?php
