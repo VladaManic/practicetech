@@ -16,25 +16,40 @@
 	<footer id="colophon" class="site-footer">
 		<div class="container">
 			<div class="row">
-				<div class="subsection subsection-1">
-					<div class="logo">
-						<?php
-							$logoImg = get_field('site_logo', 'option');
-							?>
-							<a href="/">
-								<img src="<?php echo $logoImg['url']; ?>" alt="<?php echo $logoImg['src']; ?>" id="site-logo">
-							</a>
-					</div>
-					<p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim erat leo, eget imperdiet lorem faucibus sed. Suspendisse efficitur sem eget semper facilisis.</p>
-				</div>
+			<?php
+				if (have_rows('first_subsection', 'option')) {
+					while (have_rows('first_subsection', 'option')) {
+						the_row();
+						$logoImg = get_sub_field('logo');
+			?>
+						<div class="subsection subsection-1">
+							<div class="logo">
+								<a href="/">
+									<img src="<?php echo $logoImg['url']; ?>" alt="<?php echo $logoImg['src']; ?>" id="site-logo">
+								</a>
+							</div>
+							<p class="footer-description"><?php the_sub_field('description'); ?></p>
+						</div>
+			<?php
+					}
+				}
+				if (have_rows('second_subsection', 'option')) {
+			?>
 				<div class="subsection subsection-2">
 					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="/about-us">About us</a></li>
-						<li><a href="/product">Products</a></li>
-						<li><a href="/contact">Contact</a></li>
-					</ul>
-				</div>
+			<?php
+					while (have_rows('second_subsection', 'option')) {
+						the_row();
+			?>
+						<li><a href="<?php the_sub_field('link'); ?>"><?php the_sub_field('text'); ?></a></li>
+			<?php
+					}
+			?>	
+						</ul>
+					</div>
+			<?php
+				}
+			?>
 				<div class="subsection subsection-3">
 					<ul>
 						<li>Vazduhoplovaca BB, Nis</li>
