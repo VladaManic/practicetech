@@ -45,18 +45,48 @@
 			<?php
 					}
 			?>	
+					</ul>
+				</div>
+			<?php
+				}
+				if (have_rows('third_subsection', 'option')) {
+					?>
+					<div class="subsection subsection-3">
+						<ul>
+					<?php
+						while (have_rows('third_subsection', 'option')) {
+							the_row();
+							if( get_row_layout() == 'email' ){
+								$email = get_sub_field('mail');
+			?>
+								<li>
+									<a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
+								</li>
+			<?php
+							} elseif ( get_row_layout() == 'phone' ){
+								$displayPhone = get_sub_field('display_phone');
+								$compactPhone = get_sub_field('compact_phone');
+			?>
+								<li>
+									<a href="tel:<?php echo $compactPhone; ?>"><?php echo $displayPhone; ?></a>
+								</li>
+			<?php
+							} elseif ( get_row_layout() == 'address' ){
+								$displayLocation = get_sub_field('display_location');
+								$mapLocation = get_sub_field('map_location');
+			?>
+								<li>
+									<a href="https://www.google.com/maps?q=<?php echo $mapLocation['lat']; ?>,<?php echo $mapLocation['lng']; ?>" target="_blank"><?php echo $displayLocation; ?></a>
+								</li>
+			<?php
+							}
+						}
+			?>
 						</ul>
 					</div>
 			<?php
 				}
 			?>
-				<div class="subsection subsection-3">
-					<ul>
-						<li>Vazduhoplovaca BB, Nis</li>
-						<li><a href="tel:064333444">064 333444</a></li>
-						<li><a href="mailto:randomemail@gmail.com">randomemail@gmail.com</a></li>
-					</ul>
-				</div>
 			</div>
 		</div>
 	</footer><!-- #colophon -->

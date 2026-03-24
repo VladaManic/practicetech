@@ -212,6 +212,25 @@ function paginationDisplay ($countPosts, $defaultDisplay, $currentPage){
 
 
 /**
+ * Enable google maps API
+ */
+function my_acf_google_map_api( $api ){
+	$access_token = get_field('google_maps_api', 'options');
+	$api['key'] = $access_token;
+	return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+/**
+ * Google maps API extension for ACF PRO
+ */
+function my_acf_init() {
+	$access_token = get_field('google_maps_api', 'options');
+	acf_update_setting('google_api_key', $access_token);
+}
+add_action('acf/init', 'my_acf_init');
+
+
+/**
  * Load Options
  */
 if (function_exists('acf_add_options_page')) {
