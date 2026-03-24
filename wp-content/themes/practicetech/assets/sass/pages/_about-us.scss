@@ -1,0 +1,39 @@
+body.page-template-page-about {
+	.about-persons {
+		.row {
+			display: flex;
+			flex-wrap:wrap;
+
+			.single-person {
+				display: flex;
+				margin-bottom: 30px;
+				width: 50%;
+
+				.img-wrap {
+					width: 150px;
+					height: 150px;
+					border-radius: 50%;
+					overflow: hidden; /* bitno */
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover; 
+					}
+				}
+
+				.person-data {
+					margin-left: 20px;
+
+					h3 {
+						margin-bottom: 5px;
+					}
+
+					p {
+						margin: 0;
+					}
+				}
+			}
+		}
+	}
+}
