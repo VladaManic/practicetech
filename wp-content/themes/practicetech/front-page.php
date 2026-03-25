@@ -4,7 +4,7 @@ get_header();
 
 	<section class="hero">
 		<!-- Slider main container -->
-		<div class="swiper">
+		<div class="swiper swiper-home">
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
 				<?php

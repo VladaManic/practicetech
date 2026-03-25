@@ -31,8 +31,20 @@ jQuery(function ($) {
     });
 	});
 
-  //Swiper
-  const swiper = new Swiper('.swiper', {
+  //Swiper home hero
+  const swiper = new Swiper('.swiper-home', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
+  //Swiper home about
+  const swiper2 = new Swiper('.swiper-about', {
     // Optional parameters
     direction: 'horizontal',
     loop: true,
