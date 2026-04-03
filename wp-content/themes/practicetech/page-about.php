@@ -38,9 +38,53 @@ get_header();
 		</div>
 	</section>
 
+	<section class="faq">
+		<div class="container">
+			<div class="row">
+			<?php
+			if( have_rows('faq') ){
+				while ( have_rows('faq') ){
+					the_row();
+			?>
+					<h2><?php the_sub_field('faq_title'); ?></h2>
+					<div class="faq-wrap">
+			<?php
+						if( have_rows('question_&_answer') ){
+							while ( have_rows('question_&_answer') ){
+								the_row();
+			?>
+								<div class="faq-inner">
+									<div class="question-wrap">
+										<p class="question"><?php the_sub_field('question'); ?></p>
+										<div class="arrow-wrap">
+										<svg width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M16.9998 1L8.99976 9L0.999756 1" stroke="#0053A5" stroke-width="2"/>
+										</svg>
+										</div>
+									</div>
+									<div class="answer">
+										<div class="wrapper">
+											<?php the_sub_field('answer'); ?>
+										</div>
+									</div>
+								</div>
+			<?php
+							}
+						}
+			?>
+						</div>
+			<?php
+				}
+			}
+			?>
+			</div>
+		</div>
+	</section>
+
 	<section class="testemonials">
 		<div class="container">
 			<div class="row">
+				<h2>Testemonials</h2>
 				<div class="swiper swiper-about">
 					<div class="swiper-wrapper">
 					<?php
