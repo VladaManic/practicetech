@@ -25,7 +25,7 @@
 						<div class="subsection subsection-1">
 							<div class="logo">
 								<a href="/">
-									<img src="<?php echo $logoImg['url']; ?>" alt="<?php echo $logoImg['src']; ?>" id="site-logo">
+									<img src="<?php echo $logoImg['url']; ?>" alt="<?php echo $logoImg['alt']; ?>" id="site-logo">
 								</a>
 							</div>
 							<p class="footer-description"><?php the_sub_field('description'); ?></p>
